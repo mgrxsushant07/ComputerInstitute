@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<style>
+    /* Base Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+
+    header {
+        text-align: center;
+        padding: 2rem 0;
+        background-color: #2c3e50;
+        color: white;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    main {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Form Styles */
+    form {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    form:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Form Elements */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 8px rgba(52,152,219,0.2);
+    }
+
+    /* Button Styles */
+    button {
+        background-color: #3498db;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(41,128,185,0.3);
+    }
+
+    /* Error Messages */
+    .errorlist {
+        color: #e74c3c;
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        background: #fdedec;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ef9a9a;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+        main {
+            padding: 0 15px;
+        }
+
+        form {
+            padding: 1.5rem;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+    }
+</style>
+<body>
+
+    <header>
+        <h1>Welcome to Student Registration</h1>
+    </header>
+
+    <main>
+        <form method="post" enctype="multipart/form-data" action="{% url 'student_registration' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </main>
+
+</body>
+</html>
